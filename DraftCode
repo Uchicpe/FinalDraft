@@ -1,0 +1,179 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct info {
+	string name; 
+	string personalEmail; 
+	string phoneNumber; 
+	string dateOfVisit; 
+	string timeIn; 
+	string timeOut; 
+	string reasonOfVisit;
+};
+
+int create();
+int search();
+int update();
+int del();
+
+int main(){
+	int choice;
+	int name, pass, confirmPass; 	//sign up
+	string logName, logP, logC; 	//log in
+	
+	cout<<"SCHOOL VISITOR TRACKING SYSTEM"<<endl;
+  	cout<<"1. Sign up\n2. Log in\n3. Exit\nEnter: ";
+  	cin>>choice;
+  	cout<<endl;
+  	
+  	if (choice == 1) {
+  	cout<<"	SIGN UP"<<endl;
+  	cout<<"  Creating New Account...";
+	cout<<"\nType Name: ";
+	cin>>name;
+	cout<<"Type Password: ";
+	cin>>pass;
+	cout<<"Confirm Password: ";
+	cin>>confirmPass;
+	do {               
+		if (confirmPass == pass){
+		cout<<"  SIGN UP SUCCESSFUL!\n";
+		}
+		else {
+		cout<<"Try again...\n"; 
+		cout<<"Type Password: ";
+		cin>>pass;
+		cout<<"Confirm Password: ";
+		cin>>confirmPass;    
+		if (confirmPass == pass){
+		cout<<"  SIGN UP SUCCESSFUL!\n";
+		}
+		else {
+		cout<<"Try again...\n"; 
+		cout<<"Type Password: ";
+		cin>>pass;
+		cout<<"Confirm Password: ";
+		cin>>confirmPass;
+		}
+		}
+	} while (confirmPass!= pass);
+}
+	else if (choice == 2){
+	cout<<"	LOG IN";
+	cout<<"\nEnter Name: ";
+	cin>>logName;
+	cout<<"Enter Password: ";
+	cin>>logP;
+	cout<<"Confirm Password: ";
+	cin>>logC;
+	do {               
+		if (logC == logP){
+		cout<<"LOG IN SUCCESSFUL!\n";
+		}
+		else {
+		cout<<"Try again...\n"; 
+		cout<<"Enter Password: ";
+		cin>>logP;
+		cout<<"Confirm Password: ";
+		cin>>logC;
+		if (logC == logP){
+		cout<<"  LOG IN SUCCESSFUL!\n";
+		}
+		else {
+		cout<<"Try again...\n"; 
+		cout<<"Type Password: ";
+		cin>>logP;
+		cout<<"Confirm Password: ";
+		cin>>logC;
+		}   
+		}
+	} while (logP!= logC);
+}
+	else if (choice == 3){
+		cout<<"Exiting Program...";
+		return 0;
+	}
+	else {
+		cout<<"Invalid Input.";
+		return 0;
+	}
+
+	cout<<endl;
+	int option;
+
+	do {
+		cout<<"	MAIN MENU\n";
+		cout<<"1. Create Visitor Record\n";
+		cout<<"2. Search Visitor Record\n";
+		cout<<"3. Update Visitor Record\n";
+		cout<<"4. Delete Visitor Record\n";
+		cout<<"5. Logout\n";
+		cout<<">>Enter Choice (1,2,5): ";
+		cin>>option;
+		cout<<endl;
+		
+	switch(option){
+		case 1: create();
+				break;
+		case 2: search();
+				break;
+	/*	case 3: update();
+				break;
+	  	case 4: del();
+				break;
+	*/	case 5: cout<<"Logging Out...";
+				break;
+			
+		default: cout<<"Invalid Choice.";
+	}
+}	while(option!=5);
+return 0;		
+}
+
+int create(){
+	info visitor;
+	
+	cout<<"	ADD VISITOR RECORD\n";
+	cout<<"Add visitor Name: ";
+	cin>>visitor.name;
+	cout<<"Add visitor personalEmail: ";
+	cin>>visitor.personalEmail;
+	cout<<"Add visitor phoneNumber: ";
+	cin>>visitor.phoneNumber;
+	cout<<"Add visitor dateOfVisit: ";
+	cin>>visitor.dateOfVisit;
+	cout<<"Add visitor timeIn: ";
+	cin>>visitor.timeIn;
+	cout<<"Add visitor timeOut: ";
+	cin>>visitor.timeOut;
+	cout<<"Add visitor reasonOfVisit: ";
+	cin>>visitor.reasonOfVisit;
+	// SAVE all details to database (wait for struct)
+	cout<<"Visitor Record Added Successfully.";
+	cout<<endl;
+}
+
+int search(){
+	int sChoice; //search choice
+	
+	cout<<"	VISITOR RECORD\n";
+    cout<<"Search by: ";
+	cout<<"\n1. Name\n2. Date\n";
+	cout<<"Enter Choice: ";
+    cin>>sChoice;
+    if (sChoice == 1){
+    	cout<<"Search Name: "; 			
+    //	cout>>visitor.name;				//should have input visitorName
+        //FIND record with visitor searchName (wait...)
+	}
+	else if (sChoice == 2){
+		cout<<"Search Date: "; 			
+    //  cout>>visitor.dateOfVisit;		//should have input dateOfVisit
+        //FIND records with dateOfVisit == searchDate (wait...)
+	}
+    else {
+    cout<<"No record found.";
+    cout<<endl;
+	}
+}
