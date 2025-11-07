@@ -1,2 +1,2 @@
-# Group 2: School Visitor Tracking System
-Compilation of draft codes for Visitor Tracker Program
+# Group 2: School Visitor Tracking System (DRAFT REPO)
+Compilation of drafts.
